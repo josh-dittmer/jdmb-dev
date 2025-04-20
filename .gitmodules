@@ -1,0 +1,6 @@
+[submodule "jdmb-ts"]
+	path = jdmb-ts
+	url = git@github.com:josh-dittmer/jdmb-ts.git
+[submodule "jdmb"]
+	path = jdmb
+	url = git@github.com:josh-dittmer/jdmb.git
