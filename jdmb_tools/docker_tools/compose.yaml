@@ -1,0 +1,12 @@
+services:
+    jdmb_dev:
+        build: "."
+        volumes:
+            - "../..:/app"
+            - "/var/run/docker.sock:/var/run/docker.sock"
+            - "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock"
+        environment:
+            SSH_AUTH_SOCK: "/run/host-services/ssh-auth.sock"
+        container_name: "jdmb_dev"
+        network_mode: host
+        privileged: true
