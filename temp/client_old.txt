@@ -1,0 +1,55 @@
+/*bool Client::Connection::on_data(
+    const std::shared_ptr<EventLoop>& event_loop_ptr,
+    const std::weak_ptr<Timer>& timer_hdl, int fd, uint32_t events) {
+    m_logger.verbose("[" + m_addr_str + "]: events [" +
+                     util::str::epoll_events_to_str(events) + "]");
+
+    bool disconnected = false;
+    bool should_close = false;
+
+    if (!m_connected && (events & EPOLLOUT)) {
+        Result<bool> res = connect_next(event_loop_ptr, timer_hdl, fd);
+        should_close = res.is_ok() ? !res.unwrap() : true;
+    }
+
+    if (m_connected && (events & EPOLLOUT)) {
+        flush_send_queue();
+    }
+
+    if (m_connected && (events & EPOLLIN)) {
+        Result<std::vector<uint8_t>> res = recv(fd);
+        if (!res.is_ok()) {
+            m_logger.debug("[" + m_addr_str +
+                           "]: recv failed: " + res.unwrap_err());
+
+            disconnected = true;
+            should_close = true;
+        }
+
+        else if (m_message_cb) {
+            m_message_cb(get_ptr(), res.unwrap());
+        }
+    }
+
+    if ((m_connected && (events & EPOLLRDHUP)) ||
+        (m_connected && (events & EPOLLHUP))) {
+        m_logger.verbose("[" + m_addr_str +
+                         "]: connection closed by remote peer");
+
+        disconnected = true;
+        should_close = true;
+    }
+
+    if (m_connected && (events & EPOLLERR)) {
+        m_logger.verbose("[" + m_addr_str +
+                         "]: error: " + std::string(strerror(errno)));
+        disconnected = true;
+        should_close = true;
+    }
+
+    if (disconnected && m_disconnect_cb) {
+        m_disconnect_cb(get_ptr());
+    }
+
+    return !should_close;
+}*/

@@ -40,7 +40,7 @@ RUN npm -v
 RUN git clone https://github.com/google/flatbuffers.git \
     && cd flatbuffers \
     && cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release \
-    && make -j1 \
+    && make -j4 \
     && make install
 
 # install required C++ libraries
@@ -56,6 +56,7 @@ RUN echo "/usr/local/lib" > "/etc/ld.so.conf.d/999local.conf"
 RUN ldconfig
 
 RUN rm -r rapidjson
+RUN rm -r flatbuffers
 
 # keep container from immediately exiting
 
