@@ -4,3 +4,6 @@
 [submodule "jdmb"]
 	path = jdmb
 	url = git@github.com:josh-dittmer/jdmb
+[submodule "jdmb-fb"]
+	path = jdmb-fb
+	url = git@github.com:josh-dittmer/jdmb-fb.git
